@@ -12,5 +12,6 @@ export default defineConfig({
     alias: {
       '@': _resolve('src')
     }
-  }
+  },
+  envDir: './config'
 })

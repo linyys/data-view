@@ -1,15 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './tailwindcss.css'
-
-const App = () => {
-  return (
-    <div className='bg-blue-500 text-white p-4'>1</div>
-  )
-}
+import { Provider } from 'react-redux'
+import store from './store'
+import { RouterProvider } from 'react-router-dom'
+import router from './router'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>,
 )

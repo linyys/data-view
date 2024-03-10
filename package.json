@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.2.1",
     "@types/echarts": "^4.9.22",
     "@types/node": "^20.11.25",
     "@types/react-redux": "^7.1.33",
@@ -17,6 +18,7 @@
     "autoprefixer": "^10.4.18",
     "axios": "^1.6.7",
     "echarts": "^5.5.0",
+    "less": "^4.2.0",
     "postcss": "^8.4.35",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
