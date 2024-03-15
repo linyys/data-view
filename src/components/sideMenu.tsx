@@ -4,10 +4,12 @@ import { useState } from 'react';
 import { useClassNames } from "@/hooks/useClassNames";
 function SideMenuItem({ path, label, change_now_path, now_path }: { path: string, label: string, change_now_path: (path: string) => void, now_path: string }) {
   let is_active = path === now_path;
-  
+  const createClassNames = useClassNames({
+    'bg-blue-300': is_active,
+  });
   return (
     <div onClick={() => change_now_path(path)} 
-    className="hover:bg-blue-100 p-2 m-2 w-20 h-10 cursor-pointer text-center transition rounded-md"
+    className={"p-2 m-2 w-40 h-10 cursor-pointer  text-center transition rounded-md hover:bg-blue-300" + createClassNames()}
     >
       <Link to={path}>{label}</Link>
     </div>
@@ -32,6 +34,6 @@ export default function SideMenu() {
     )
   })
   return (
-    <div>{nodes}</div>
+    <div className="flex flex-col w-52 h-screen bg-gray-100">{nodes}</div>
   )
 }
