@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+
 function Lazy(Element: React.LazyExoticComponent<() => JSX.Element>) {
   return (
     <Suspense >
@@ -9,18 +10,21 @@ function Lazy(Element: React.LazyExoticComponent<() => JSX.Element>) {
 interface Route {
   path: string,
   element: JSX.Element,
-  handle: string
+  handle: string,
+  auth: boolean
 }
 const routes: Route[] = [
   {
     path: '/home',
     element: Lazy(React.lazy(() => import('@/view/home'))),
-    handle: 'home'
+    handle: 'home',
+    auth: true
   },
   {
     path: '/map',
     element: Lazy(React.lazy(() => import('@/view/map'))),
-    handle: 'map'
+    handle: 'map',
+    auth: true
   }
 ]
 
