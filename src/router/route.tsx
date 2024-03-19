@@ -25,6 +25,12 @@ const routes: Route[] = [
     element: Lazy(React.lazy(() => import('@/view/map'))),
     handle: 'map',
     auth: true
+  },
+  {
+    path: '/dataView',
+    element: Lazy(React.lazy(() => import('@/view/data'))),
+    handle: 'dataView',
+    auth: true
   }
 ]
 

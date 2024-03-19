@@ -12,7 +12,7 @@ function SideMenuItem({ path, label, nowPath }: { path: string, label: string, n
   });
   return (
     <Link to={path} replace>
-      <div className={"p-2 m-1 w-40 h-10 cursor-pointer  text-center transition rounded-md hover:bg-blue-300" + createClassNames()}
+      <div className={createClassNames("p-2 m-1 w-40 h-10 cursor-pointer  text-center transition rounded-md hover:bg-blue-300")}
       >
         {label}
       </div>
@@ -39,7 +39,6 @@ export default function SideMenu() {
       )
     }
   })
-  console.log(nodes);
   return (
     <div className="flex flex-col">{nodes}</div>
   )
