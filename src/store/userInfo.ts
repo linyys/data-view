@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const userInfoSlice = createSlice({
   name: 'userInfo',
   initialState: {
-    auths: ['/home', '/dataView'],
+    auths: ['/home', '/dataView', '/map'],
     isLogin: true
   },
   reducers: {

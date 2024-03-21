@@ -1,47 +1,5 @@
-import * as echarts from 'echarts';
-import { useEffect, useRef } from 'react';
 import { useExtract } from '@/hooks/useExtract';
-interface ChartProps {
-    xAxis: string[];
-    yAxis?: {};
-    data: { label: string, values: object[] }[];
-    keys: string;
-}
-function Chart({ xAxis, yAxis = {}, data, keys }: ChartProps) {
-    const chart = useRef(null);
-    const sData = useExtract(data, keys)
-    const series: echarts.EChartOption.Series[] = []
-    // for(let key in sData) {
-    //     series.push({
-    //         name: key,
-    //         type: 'line',
-    //         data: sData[key]
-    //     })
-    // }
-    sData.forEach((item) => {
-        series.push({
-            name: item.label,
-            type: 'line',
-            data: item.values,
-            smooth: true
-        })
-    })
-    useEffect(() => {
-        const myChart = echarts.init(chart.current);
-        myChart.setOption({
-            tooltip: {},
-            xAxis: {
-                data: [...xAxis]
-            },
-            yAxis,
-            series,
-        });
-    }, [chart])
-
-    return (
-        <div ref={chart} style={{ width: '100%', height: '100%' }} />
-    )
-}
+import Chart from '@/components/Chart';
 
 export default function Data() {
     const data1 = [{
@@ -68,24 +26,50 @@ export default function Data() {
         test: 8
     }]
     const data2 = [{
-        time: 1111,
+        time: new Date().getSeconds(),
         value: 3,
     }, {
-        time: 1111,
+        time: new Date().getSeconds(),
         value: 6,
     },
     {
-        time: 1111,
+        time: new Date().getSeconds(),
         value: 9,
     },
     {
-        time: 1111,
+        time: new Date().getSeconds(),
         value: 12,
     }]
+    const { value, time } = useExtract(data2, ['value', 'time'])
+
+    const series = {
+        name: '1',
+        type: 'bar',
+        data: value
+    }
+
+    const option: echarts.EChartOption = {
+        title: {
+            text: 'title1'
+        },
+        tooltip: {},
+        xAxis: {
+            data: [...time]
+        },
+        yAxis: [
+            {
+                type: 'value',
+                scale: true,
+                max: 30,
+                min: 0,
+            }
+        ],
+        series: [series]
+    }
     return (
-        <div>Data
+        <div>
             <div style={{ width: 'auto', height: '600px' }}>
-                <Chart xAxis={['test1', 'test2', 'test3', 'test4']} data={[{ label: 'test1', values: data1 }, { label: 'test1', values: data2 }]} keys={'value'} />
+                <Chart option={option} />
             </div>
         </div>
     )
