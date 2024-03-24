@@ -1,30 +1,7 @@
 import { useExtract } from '@/hooks/useExtract';
 import Chart from '@/components/Chart';
-
+import "@/mock/index"
 export default function Data() {
-    const data1 = [{
-        time: 1111,
-        value: 5,
-        name: 'test',
-        test: 2
-    }, {
-        time: 1111,
-        value: 10,
-        name: 'test',
-        test: 4
-    },
-    {
-        time: 1111,
-        value: 20,
-        name: 'test',
-        test: 22
-    },
-    {
-        time: 1111,
-        value: 30,
-        name: 'test',
-        test: 8
-    }]
     const data2 = [{
         time: new Date().getSeconds(),
         value: 3,
